@@ -1,0 +1,43 @@
+body {
+    width: 70%;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    background-color: bisque;
+}
+
+.boxed {
+    border: 2px solid palevioletred;
+    margin: 10px;
+    background-color: beige;
+}
+
+.flexed {
+   display: flex; 
+   flex: 1;
+   justify-content: space-between;
+}
+
+.lateral_Box {
+    flex: 0 1 15%;
+}
+
+.center_Box {
+    flex: 0 1 70%;
+}
+
+.gameDesc {
+    font-style: italic;
+}
+
+.centerBottom_Box {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.lateral_Box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
