@@ -105,8 +105,10 @@ function winnerActions(winnerScore) {
 }
 
 function popupResult() {
-    if (message === 0) { 'You won! ' + playerChoice + ' beats ' + computerChoice + '.'; }
-    else if (message === 1) { 'You lost! ' + computerChoice + ' beats ' + playerChoice + '.'; }
+    playerChoiceStrings(playerChoice);
+    computerChoiceStrings(computerChoice);
+    if (message === 0) { 'You won! ' + playerChoiceString + ' beats ' + computerChoiceString + '.'; }
+    else if (message === 1) { 'You lost! ' + computerChoiceString + ' beats ' + playerChoiceString + '.'; }
     else { 'A tie! No winners this time.'; }
     updateWinsLosses();
     updateLists();
@@ -125,20 +127,38 @@ function updateWinsLosses() {
 function updateLists() {
     var playerBoard = document.getElementById('playerBoard');
     var playerli = document.createElement("playerli");
-    var playerChoiceBoard = playerChoice;
+    playerChoiceStrings(playerChoice);
+    var playerChoiceBoard = playerChoiceString;
     playerli.appendChild(document.createTextNode(playerChoiceBoard));
     playerBoard.appendChild(playerli);
 
     var computerBoard = document.getElementById('computerBoard');
     var computerli = document.createElement("computerli");
-    var computerChoiceBoard = computerChoice;
+    computerChoiceStrings(computerChoice);
+    var computerChoiceBoard = computerChoiceString;
     computerli.appendChild(document.createTextNode(computerChoiceBoard));
     computerBoard.appendChild(computerli);
 }
 
-function updateLastChoices(playerChoice, computerChoice) {
-    document.getElementById('youLastChoice').textContent = 'You ⭬ ' + playerChoice;
-    document.getElementById('computerLastChoice').textContent = computerChoice + ' ⭪ Computer';
+function updateLastChoices(playerChoiceString, computerChoiceString, playerChoice, computerChoice) {
+    const playerChoiceText = playerChoiceStrings(playerChoice);
+    document.getElementById('youLastChoice').textContent = 'You ⭬ ' + playerChoiceText;
+    const computerChoiceText = computerChoiceStrings(computerChoice);
+    document.getElementById('computerLastChoice').textContent = computerChoiceText + ' ⭪ Computer';
+}
+
+function playerChoiceStrings(playerChoice) {
+    if (playerChoice === 0) {playerChoiceString='Scissors';}
+    else if (playerChoice === 1) {playerChoiceString='Paper';}
+    else {playerChoiceString='Rock';}
+    return playerChoiceString;
+}
+
+function computerChoiceStrings(computerChoice) {
+    if (computerChoice === 0) {computerChoiceString='Scissors';}
+    else if (computerChoice === 1) {computerChoiceString='Paper';}
+    else {computerChoiceString='Rock';}
+    return computerChoiceString;
 }
 
 function restartLists() {
