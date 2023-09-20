@@ -140,7 +140,7 @@ function updateLists() {
     computerBoard.appendChild(computerli);
 }
 
-function updateLastChoices(playerChoiceString, computerChoiceString, playerChoice, computerChoice) {
+function updateLastChoices(playerChoice, computerChoice) {
     const playerChoiceText = playerChoiceStrings(playerChoice);
     document.getElementById('youLastChoice').textContent = 'You ⭬ ' + playerChoiceText;
     const computerChoiceText = computerChoiceStrings(computerChoice);
@@ -150,14 +150,16 @@ function updateLastChoices(playerChoiceString, computerChoiceString, playerChoic
 function playerChoiceStrings(playerChoice) {
     if (playerChoice === 0) {playerChoiceString='Scissors';}
     else if (playerChoice === 1) {playerChoiceString='Paper';}
-    else {playerChoiceString='Rock';}
+    else if (playerChoice === 2) {playerChoiceString='Rock';}
+    else {playerChoiceString='';}
     return playerChoiceString;
 }
 
 function computerChoiceStrings(computerChoice) {
     if (computerChoice === 0) {computerChoiceString='Scissors';}
     else if (computerChoice === 1) {computerChoiceString='Paper';}
-    else {computerChoiceString='Rock';}
+    else if (computerChoice === 2) {computerChoiceString='Rock';}
+    else {computerChoiceString='';}
     return computerChoiceString;
 }
 
