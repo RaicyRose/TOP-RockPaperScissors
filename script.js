@@ -126,14 +126,14 @@ function updateWinsLosses() {
 
 function updateLists() {
     var playerBoard = document.getElementById('playerBoard');
-    var playerli = document.createElement("playerli");
+    var playerli = document.createElement("li");
     playerChoiceStrings(playerChoice);
     var playerChoiceBoard = playerChoiceString;
     playerli.appendChild(document.createTextNode(playerChoiceBoard));
     playerBoard.appendChild(playerli);
 
     var computerBoard = document.getElementById('computerBoard');
-    var computerli = document.createElement("computerli");
+    var computerli = document.createElement("li");
     computerChoiceStrings(computerChoice);
     var computerChoiceBoard = computerChoiceString;
     computerli.appendChild(document.createTextNode(computerChoiceBoard));
