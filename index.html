@@ -9,42 +9,62 @@
 </head>
 
 <body>
-
-    <div class="boxed head_Box">
-        <h1>Rock, Paper, Scissors</h1>
-    </div>
-
-    <div class="flexed">
-
-        <div class="boxed lateral_Box">
-            <span><h2>You</h2>
-            <ul class="sideScoreBoard" id="playerBoard"></ul></span>
-            <span class="scores"><p class="wins" id="playerWins"></p><p>|</p><p class="losses" id="playerLosses"></p></span>
+    <div id="mainSpace">
+        <div class="boxed head_Box">
+            <h1>Rock, Paper, Scissors</h1>
         </div>
 
-        <div class="center_Box">
-            <div class="boxed centerTop_Box">
-                <h2>What will be your choise?</h2><br />
-                <p class="gameDesc">The computer already has in mind what their next choice will be, what will yours
-                    be?<br />Remember, you can either choose Rock, Paper or Scissors.<br /><br />Whoever reaches 5 victories first, wins the match.<br /><br />Rock beats Scissors, Scissors
-                    beats Paper, and Paper beats Rock.</p><br />
-                <h3><button id="gameStartBTN">Start</button></h3>
+        <div class="flexed">
+
+            <div class="boxed lateral_Box">
+                <span>
+                    <h2>You</h2>
+                    <ul class="sideScoreBoard" id="playerBoard"></ul>
+                </span>
+                <span class="scores">
+                    <p class="wins" id="playerWins"></p>
+                    <p>|</p>
+                    <p class="losses" id="playerLosses"></p>
+                </span>
             </div>
-            <div class="boxed centerBottom_Box">
-                <p id="youLastChoice">You ⭬ {playerChoice}</p>
-                <p>VS</p>
-                <p id="computerLastChoice">{computerChoice} ⭪ Computer</p>
+
+            <div class="center_Box">
+                <div class="boxed centerTop_Box">
+                    <h2>What will be your choise?</h2><br />
+                    <p class="gameDesc">The computer already has in mind what their next choice will be, what will yours
+                        be?<br />Remember, you can either choose Rock, Paper or Scissors.<br /><br />Whoever reaches 5
+                        victories first, wins the match.<br /><br />Rock beats Scissors, Scissors
+                        beats Paper, and Paper beats Rock.</p><br />
+                    <h3><button id="gameStartBTN">Start</button></h3>
+                </div>
+                <div class="boxed centerBottom_Box">
+                    <p id="youLastChoice">You ⭬ {playerChoice}</p>
+                    <p>VS</p>
+                    <p id="computerLastChoice">{computerChoice} ⭪ Computer</p>
+                </div>
+            </div>
+
+            <div class="boxed lateral_Box">
+                <span>
+                    <h2>Computer</h2>
+                    <ul class="sideScoreBoard" id="computerBoard"></ul>
+                </span>
+                <span class="scores">
+                    <p class="wins" id="computerWins"></p>
+                    <p>|</p>
+                    <p class="losses" id="computerLosses"></p>
+                </span>
             </div>
         </div>
 
-        <div class="boxed lateral_Box">
-            <span><h2>Computer</h2>
-            <ul class="sideScoreBoard" id="computerBoard"></ul></span>
-            <span class="scores"><p class="wins" id="computerWins"></p><p>|</p><p class="losses" id="computerLosses"></p></span>
-        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+              <p id="endGameMSG"></p>
+              <button id="popup-button-restart">Restart</button>
+            </div>
+          </div>
 
     </div>
-
     <script src="script.js"></script>
 
 </body>

@@ -22,20 +22,23 @@ function gameLoop() {
     else { individualGame(); }
 }
 
-function endGame () {
-        if (playerWins === 5) { endMSGPlayer(); }
-        else { endMSGComputer(); }
+function endGame() {
+    if (playerWins === 5) { endMSGPlayer(); }
+    else { endMSGComputer(); }
+    showPopup();
 }
 
 function endMSGPlayer() {
-    'You won the match, congratulation! Try again?'
+    endGameMSGs = 'You won the match, congratulation! Try again?';
+    document.getElementById('endGameMSG').textContent = endGameMSGs;
 }
 
 function endMSGComputer() {
-    'You lost the match, better luck next time! Try again?'
+    endGameMSGs = 'You lost the match, better luck next time! Try again?';
+    document.getElementById('endGameMSG').textContent = endGameMSGs;
 }
 
-function restartGame () {
+function restartGame() {
     playerWins = 0;
     playerLosses = 0;
 
@@ -62,7 +65,7 @@ function promptPlayer() {
 }
 
 function transformPlayerChoice(playerChoice) {
-    playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1);
+    playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase();
     return playerChoice;
 }
 
@@ -148,24 +151,62 @@ function updateLastChoices(playerChoice, computerChoice) {
 }
 
 function playerChoiceStrings(playerChoice) {
-    if (playerChoice === 0) {playerChoiceString='Scissors';}
-    else if (playerChoice === 1) {playerChoiceString='Paper';}
-    else if (playerChoice === 2) {playerChoiceString='Rock';}
-    else {playerChoiceString='';}
+    if (playerChoice === 0) { playerChoiceString = 'Scissors'; }
+    else if (playerChoice === 1) { playerChoiceString = 'Paper'; }
+    else if (playerChoice === 2) { playerChoiceString = 'Rock'; }
+    else { playerChoiceString = ''; }
     return playerChoiceString;
 }
 
 function computerChoiceStrings(computerChoice) {
-    if (computerChoice === 0) {computerChoiceString='Scissors';}
-    else if (computerChoice === 1) {computerChoiceString='Paper';}
-    else if (computerChoice === 2) {computerChoiceString='Rock';}
-    else {computerChoiceString='';}
+    if (computerChoice === 0) { computerChoiceString = 'Scissors'; }
+    else if (computerChoice === 1) { computerChoiceString = 'Paper'; }
+    else if (computerChoice === 2) { computerChoiceString = 'Rock'; }
+    else { computerChoiceString = ''; }
     return computerChoiceString;
 }
 
-function restartLists() {
-
+function deleteAllListItems() {
+    var playerBoard = document.getElementById('playerBoard');
+    var computerBoard = document.getElementById('computerBoard');
+    // Remove all child elements (list items) from the playerBoard and computerBoard
+    while (playerBoard.firstChild) {
+        playerBoard.removeChild(playerBoard.firstChild);
+    }
+    while (computerBoard.firstChild) {
+        computerBoard.removeChild(computerBoard.firstChild);
+    }
 }
+
+function restartLists() {
+    computerChoice = '';
+    playerChoice = '';
+    updateLastChoices(playerChoice, computerChoice);
+    deleteAllListItems();
+    playerLosses = 0;
+    playerWins = 0;
+    computerLosses = 0;
+    computerWins = 0;
+    updateWinsLosses();
+}
+
+// Get references to the popup and its buttons
+const popup = document.getElementById('popup');
+const button1 = document.getElementById('popup-button-restart');
+
+// Function to show the popup
+function showPopup() {
+    popup.style.display = 'block';
+}
+
+// Function to hide the popup
+function hidePopup() {
+    popup.style.display = 'none';
+    restartLists();
+}
+
+// Event listeners to show and hide the popup
+button1.addEventListener('click', hidePopup);
 
 // Functions to Start on Launch
 
