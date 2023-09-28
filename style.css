@@ -96,3 +96,16 @@ li {
     box-shadow: 0px 0px 10px 0px #000000;
   }
   
+  .playerChoicebtns {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .btnPlayerChoices {
+    font-size: 50px;
+    width: 75px;
+    height: 75px;
+    border-radius: 15px;
+    border-color: palevioletred;
+    cursor: pointer;
+  }

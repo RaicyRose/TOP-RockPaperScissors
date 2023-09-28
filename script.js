@@ -12,10 +12,46 @@ const Rock = 2;
 
 let message = undefined;
 
-const startGame = document.getElementById('gameStartBTN')
-startGame.addEventListener('click', gameLoop);
+const strtGameRock = document.getElementById('Rockbtn')
+strtGameRock.addEventListener('click', startGameRock);
+
+const strtGamePaper = document.getElementById('Paperbtn')
+strtGamePaper.addEventListener('click', startGamePaper);
+
+const strtGameScissors = document.getElementById('Scissorsbtn')
+strtGameScissors.addEventListener('click', startGameScissors);
 
 // Start the game || End the game || Restart Game
+
+function startGameRock() {
+    startRock();
+    gameLoop();
+}
+
+function startRock() {
+    playerChoice = Rock;
+    return playerChoice;
+}
+
+function startGamePaper() {
+    startPaper();
+    gameLoop();
+}
+
+function startPaper() {
+    playerChoice = Paper;
+    return playerChoice;
+}
+
+function startGameScissors() {
+    startScissors();
+    gameLoop();
+}
+
+function startScissors() {
+    playerChoice = Scissors;
+    return playerChoice;
+}
 
 function gameLoop() {
     if (playerWins === 5 || computerWins === 5) { endGame(); }
@@ -51,29 +87,9 @@ function restartGame() {
 // Player Choice - Input, toString, 
 
 function individualGame() {
-    playerChoice = promptPlayer();
-    playerChoice = transformPlayerChoice(playerChoice);
-    playerChoice = playerChoiceFunction(playerChoice);
     computerChoiceRandom();
     winnerCheck(playerChoice, computerChoice);
     winnerActions(winnerScore);
-}
-
-function promptPlayer() {
-    playerChoice = prompt("Make your choice: Rock, Paper, or Scissors?");
-    return playerChoice;
-}
-
-function transformPlayerChoice(playerChoice) {
-    playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase();
-    return playerChoice;
-}
-
-function playerChoiceFunction(playerChoice) {
-    if (playerChoice == 'Scissors') { playerChoice = Scissors; }
-    else if (playerChoice == 'Paper') { playerChoice = Paper; }
-    else { playerChoice = Rock; }
-    return playerChoice;
 }
 
 // Computer Choice
